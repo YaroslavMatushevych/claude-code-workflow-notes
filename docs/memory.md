@@ -127,7 +127,7 @@ Issues #4017 and #11545 report rules ignored after `/compact`. (V, issues read) 
 
 ### 5. Stale memory
 
-Auto memory grows. Old decisions become wrong. One post says memory without criteria "ends up as useless as a 300-line CLAUDE.md". (V, dev.to, Odilon Hugonnot, 2026-04-05; check the exact wording at the source.) A vendor article reports contradictory entries after 20 to 30 sessions. (U, vendor source)
+Auto memory grows. Old decisions become wrong. One post says memory without criteria "ends up as useless as a 300-line CLAUDE.md". (V, dev.to, https://dev.to/ohugonnot/persistent-memory-in-claude-code-whats-worth-keeping-54ck, Odilon Hugonnot, 2026-04-05; check the exact wording at the source.) A vendor article reports contradictory entries after 20 to 30 sessions. (U, vendor source)
 
 What to do: open `/memory` now and then. Delete old entries. Keep the index under 200 lines.
 

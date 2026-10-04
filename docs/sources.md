@@ -67,7 +67,7 @@ Every source used in these notes. Status: **V** = the author read it (date read:
 | https://github.com/mattpocock/skills/blob/main/skills/productivity/writing-for-agents/SKILL.md | Matt Pocock, undated | V |
 | https://github.com/mattpocock/dictionary-of-ai-coding/blob/main/dictionary/Smart%20zone.md | Matt Pocock, undated | V |
 | Posts by Matt Pocock on X about the dumb zone and ticket size | Matt Pocock, dates unverified | U (search snippets only; the page returned HTTP 402) |
-| "Як правильно працювати з Agent Skills" (YouTube, BeerCode channel) | Kyrylo, 2026-08-09 | V for the captions (auto-generated, auto-translated); on-screen content U; SkillsBench numbers not checked. Video URL not recorded. |
+| "Як правильно працювати з Agent Skills" (YouTube, BeerCode channel, https://www.youtube.com/watch?v=3t7VVZp2si8) | Kyrylo, 2026-08-09 | V for the captions (auto-generated, auto-translated); on-screen content U; SkillsBench numbers not checked. Video https://dev.to/ohugonnot/persistent-memory-in-claude-code-whats-worth-keeping-54ck. |
 | https://gist.github.com/Danm72/467f6d6cd193d19c0042371866d53b75 | Thariq Shihipar, "Lessons from Building Claude Code: How We Use Skills", 2026-03-17 (gist mirror of an X article) | V (summarised fetch) |
 | https://simonwillison.net/2025/Oct/16/claude-skills/ | Simon Willison, 2025-10-16 | V (summarised fetch) |
 | https://github.com/travisvn/awesome-claude-skills | travisvn, updated 2026-02 | V (index only) |

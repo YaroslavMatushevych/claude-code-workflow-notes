@@ -86,7 +86,7 @@ His README says other frameworks "take away your control". He prefers skills tha
 
 ## BeerCode talk: seven levels of a skill
 
-Talk: "Як правильно працювати з Agent Skills" (How to work correctly with Agent Skills). BeerCode channel, speaker Kyrylo (Head of Engineering). Published 2026-08-09, about 19 minutes. Language: Ukrainian. Search the title on YouTube to find it. The author did not record the video URL.
+Talk: "Як правильно працювати з Agent Skills" (How to work correctly with Agent Skills). URL: https://www.youtube.com/watch?v=3t7VVZp2si8. BeerCode channel, speaker Kyrylo (Head of Engineering). Published 2026-08-09, about 19 minutes. Language: Ukrainian. Search the title on YouTube to find it. The author did not record the video URL.
 
 How the author read it: from the **auto-generated captions**, using the auto-translated English track. Wording may be slightly off. The author could not see the screen. Anything about on-screen content is U. The author did not check the "SkillsBench" numbers from the talk, so they are left out. All claims below are the speaker's.
 
