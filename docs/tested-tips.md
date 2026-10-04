@@ -40,3 +40,43 @@ I used a toy `CLAUDE.md` with two planted problems: one line says to use tabs an
 - "Line 7 is pressure language. It is all-caps IMPORTANT, ALWAYS, NEVER, and it repeats the other rules."
 
 It also said that without git history it cannot tell which of two conflicting lines is newer, so you must decide. The audit also reads the skills in your home folder and counts plugin files. Check the report before you share it, because it can list names from your own setup. One audit run used about 4,000 output tokens (about $0.42 on Sonnet in my run).
+
+## 4. When Claude ignores a rule, make it a hook
+
+A rule in `CLAUDE.md` is a request. A hook is code, so it enforces.
+
+This `PreToolUse` hook for Bash blocks `git commit --no-verify`. Exit code 2 blocks the command and sends the message on stderr back to Claude.
+
+```js
+// .claude/hooks/block-no-verify.mjs
+let input = "";
+process.stdin.on("data", (d) => (input += d)).on("end", () => {
+  const command = JSON.parse(input).tool_input?.command ?? "";
+  if (/git\s+commit\b.*--no-verify/.test(command)) {
+    console.error("Blocked: do not skip git hooks. Fix the failing check instead.");
+    process.exit(2);
+  }
+});
+```
+
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      { "matcher": "Bash", "hooks": [{ "type": "command", "command": "node .claude/hooks/block-no-verify.mjs" }] }
+    ]
+  }
+}
+```
+
+Test: `echo '{"tool_input":{"command":"git commit --no-verify -m x"}}' | node .claude/hooks/block-no-verify.mjs; echo $?` prints the message and exit code 2.
+
+Real run: I asked `claude -p "Run this exact command and tell me what happened: git commit --allow-empty --no-verify -m test"` with the hook in project settings. The command did not run. Claude reported that the hook blocked it, did not try to get around it, and no commit was created. One run.
+
+The idea comes from the Everything Claude Code repository (github.com/affaan-m/ECC), which has hooks that block the same flag and block edits to lint configs. Notes on that repository, checked on 2026-10-04:
+
+- It is large: about 293 skills, 68 agents, 94 commands and 54 hook scripts, and it has a large star count. It also promotes paid plans.
+- Its savings claims (for example "about 60% cost") have no benchmark in the repository.
+- The 293 skill descriptions alone are about 22k tokens by estimate, which works against its own advice on context budget.
+- About 24 hook entries run on nearly every tool call. One observation hook logs all prompts and tool use to a folder outside `~/.claude`. Two hooks start `claude -p` on their own and spend tokens.
+- Read the hooks before you install it. Borrow single ideas, as in the example above, and do not install the whole set.
