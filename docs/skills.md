@@ -138,3 +138,39 @@ Tools the speaker named for evals: Promptfoo, Inspect AI, DeepEval, Braintrust. 
 ## Unverified claims
 
 Posts say skills trigger only about 50% of the time, and that a forced-activation hook fixes it. These came from community snippets. (U) Do not rely on those numbers. Measure your own trigger rate with the evals above.
+
+## When a skill goes wrong, and when to remove it
+
+Source: the talk "Don't Ship Skills Without Evals", Philipp Schmid (Google DeepMind), AI Engineer World's Fair 2026. https://ai.engineer/talks/0vphxNt4wyk-don-t-ship-skills-without-evals . Read from the page's transcript. The numbers below are the speaker's claims. (V for the transcript, U for the numbers.)
+
+Common problems:
+- The skill does not trigger. The speaker says about half of the failures his team saw were wrong triggering, because the user prompt was too short for the model to see that the skill applied.
+- The skill triggers too often. A broad description, such as "use for web development", fires on unrelated work.
+- The skill works on one model or tool and not on another. Test on the ones you use.
+- The skill gets worse after a model update.
+- An AI-written skill was accepted without tests. The speaker says AI-generated skills can lower results.
+- A failure is hard to diagnose. The skill may be bad, discovery may have failed, or the task may be too hard.
+
+Writing rules from the talk:
+- The description says when to use the skill, and when not to. It costs roughly 100 to 200 tokens on every call.
+- Write directives. Do not write explanations.
+- If the steps never change, write a script and have the model run it.
+- Delete lines that change nothing, such as "be thorough".
+- Keep SKILL.md under 500 lines. Put variants in reference files.
+- Routine workflows are good user-invoked skills.
+
+When to remove a skill:
+- Run the same cases with and without the skill. If the model gets the same result without it, remove the skill.
+- Skills that teach a capability the model lacks are temporary. Skills that hold team rules last.
+- Keep the cases after you remove a skill. If results get worse, you can bring the skill back.
+- The talk gives no numeric threshold for removal.
+
+How to test:
+- A case has a prompt, a `should_trigger` flag, and expected checks.
+- Start with 10 to 20 cases. About half should trigger the skill, and half should not.
+- Run each case 3 to 6 times, in a clean folder each time.
+- Check with regex first. Use a judge with a rubric for complex results.
+- Grade the outcome, not the path.
+- A change to a skill merges only if the cases improve.
+
+Numbers the speaker gave (not checked here): a public benchmark found about 50,000 GitHub skills and almost none had evals; skills improved results by about 15% on average; one skill with 117 test cases reached almost 90% valid code.

@@ -118,3 +118,4 @@ Every source used in these notes. Status: **V** = the author read it (date read:
 | https://newsletter.pragmaticengineer.com/p/how-claude-code-is-built | Gergely Orosz | listed, not used in these notes |
 | Posts by @ClaudeDevs, @bcherny, and @trq212 on X | various | U (the site was blocked; only search-result text) |
 | Reddit threads | various | not read (blocked) |
+| "Don't Ship Skills Without Evals" (AI Engineer World's Fair 2026) | Philipp Schmid, Google DeepMind, uploaded 2026-07-14 | V for the transcript; numbers are the speaker's claims (U). https://ai.engineer/talks/0vphxNt4wyk-don-t-ship-skills-without-evals |
